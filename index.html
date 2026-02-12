@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Personal CV - Erin B. Lacson</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
@@ -22,17 +23,52 @@
         </ul>
     </nav>
 
+<div class="container">
     <main>
-        <section id="about">
+        <section id="about" class="card"> 
             <h2>About Me</h2>
             <img src="images/profile.jpeg" alt="Profile photo of Erin B. Lacson" width="200">
             <p>Creative and detail-oriented designer with a passion for crafting intuitive user experiences and visually engaging interfaces. Skilled in UX design, visual storytelling, and modern web development practices, I thrive on turning complex ideas into simple, elegant solutions.</p>
             <p>My career goal is to design products that not only look beautiful but also feel effortless to use, bridging the gap between technology and human connection. I bring a unique blend of technical knowledge and artistic creativity, allowing me to collaborate effectively with developers, product managers, and clients.</p>
         </section>
 
-        <section class="education">
+       <section id="skills" class="card"> 
+            <h2>Technical Skills</h2>
+            <h3>Programming Languages</h3>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+
+            <h3>Development Skills</h3>
+            <ol>
+                <li>Web Design</li>
+                <li>Responsive Development</li>
+                <li>Version Control (Git)</li>
+                <li>Problem Solving</li>
+            </ol>
+
+            <h3>Soft Skills</h3>
+            <ul>
+                <li>Communication
+                    <ul>
+                    <li>Written communication</li>
+                    <li>Verbal presentation</li>
+                    </ul>
+                </li>
+                <li>Teamwork
+                    <ul>
+                    <li>Collaboration</li>
+                    <li>Leadership</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="education" class="card"> 
             <h2>Education</h2>
-            <table border="1" cellpadding="3" cellspacing="0">
+            <table>
                 <tr>
                     <th>Degree</th>
                     <th>Institution</th>
@@ -61,7 +97,7 @@
             </table>
         </section>
 
-        <section id="experience">
+        <section id="experience" class="card"> 
             <h2>Work Experience</h2>
             <article>
                 <h3>UX Designer - Google</h3>
@@ -75,41 +111,7 @@
             </article>
         </section>
 
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <h3>Programming Languages</h3>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-            </ul>
-
-            <h3>Development Skills</h3>
-            <ol>
-                <li>Web Design</li>
-                <li>Responsive Development</li>
-                <li>Version Control (Git)</li>
-                <li>Problem Solving</li>
-            </ol>
-
-            <h3>Soft Skills</h3>
-            <ul>
-                <li>Communication
-                    <ul>
-                        <li>Written communication</li>
-                        <li>Verbal presentation</li>
-                    </ul>
-                </li>
-                <li>Teamwork
-                    <ul>
-                        <li>Collaboration</li>
-                        <li>Leadership</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-
-        <section id="contact">
+        <section id="contact"class="card"> 
             <h2>Contact Me</h2>
             <p>Visit my portfolio: <a href="https://www.example.com" title="Visit my portfolio website">Portfolio Website</a></p>
             
@@ -121,6 +123,7 @@
             </form>
         </section>
     </main>
+</div>
 
     <footer>
         <p>&copy; 2026 Erin B. Lacson. All rights reserved.</p>
