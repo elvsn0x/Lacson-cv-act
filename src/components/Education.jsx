@@ -1,6 +1,11 @@
-function Education() {
+function Education({ education }) {
+  // Safety check
+  if (!education || education.length === 0) {
+    return <section className="card"><h2>Education</h2><p>No education data available</p></section>;
+  }
+
   return (
-    <section id="Education" className="card">
+    <section className="card">
       <h2>Education</h2>
       <table>
         <thead>
@@ -11,26 +16,13 @@ function Education() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Bachelor of Science in Information Technology</td>
-            <td>University of Science and Technology of Southern Philippines</td>
-            <td>2023-Present</td>
-          </tr>
-            <tr>
-            <td>Senior High School</td>
-            <td>Liceo de Cagayan University</td>
-            <td>2020-2023</td>
-          </tr>
-          <tr>
-            <td>High School</td>
-            <td>Pilgrim Christian College</td>
-            <td>2016-2020</td>
-          </tr>
-            <tr>
-            <td>Elementary</td>
-            <td>Cagayan de Oro Christian School</td>
-            <td>2009-2016</td>
-          </tr>
+          {education.map((item, index) => (
+            <tr key={index}>
+              <td>{item.program}</td>
+              <td>{item.school}</td>
+              <td>{item.year}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </section>

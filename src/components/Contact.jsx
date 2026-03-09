@@ -8,12 +8,10 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Check if all fields are filled
     if (name === "" || email === "" || message === "") {
       alert("Please fill in all required fields.");
     } else {
-      alert("Form submitted successfully!");
-      // Clear the form after successful submission
+      alert(`Thank you ${name}! Your message has been received.`);
       setName("");
       setEmail("");
       setMessage("");
@@ -21,7 +19,7 @@ function Contact() {
   };
 
   return (
-    <section id="Contact" className="card">
+    <section className="card">
       <h2>Contact Me</h2>
       <p>Visit my portfolio: <a href="https://www.example.com" title="Visit my portfolio website">Portfolio Website</a></p>
       
