@@ -8,14 +8,24 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if (name === "" || email === "" || message === "") {
-      alert("Please fill in all required fields.");
-    } else {
-      alert(`Thank you ${name}! Your message has been received.`);
+    // Send data to PHP API
+    fetch("http://localhost/cv-api/process.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name: name })
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert(data.message);
       setName("");
       setEmail("");
       setMessage("");
-    }
+    })
+    .catch(error => {
+      alert("Error connecting to server: " + error);
+    });
   };
 
   return (
@@ -41,7 +51,7 @@ function Contact() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         ></textarea>
-        <button type="submit">Submit</button>
+        <button type="submit">Send</button>
       </form>
     </section>
   );
