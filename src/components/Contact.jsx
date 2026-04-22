@@ -18,14 +18,18 @@ function Contact() {
     })
     .then(res => res.json())
     .then(data => {
-      alert(data.message);
-      setName("");
-      setEmail("");
-      setMessage("");
-    })
-    .catch(error => {
-      alert("Error connecting to server: " + error);
-    });
+    if (data.message) {
+    alert(data.message);
+    } else {
+    alert("Unexpected error occurred.");
+    }
+    setName("");
+    setEmail("");
+    setMessage("");
+  })
+  .catch(error => {
+    alert("Error connecting to server: " + error);
+  });
   };
 
   return (
