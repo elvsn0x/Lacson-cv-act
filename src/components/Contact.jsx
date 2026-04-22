@@ -8,28 +8,34 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    console.log("Sending data:", { name, email, message }); // Debug line
+    
     // Send data to PHP API
     fetch("http://localhost/cv-api/process.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ name: name })
+      body: JSON.stringify({ 
+        name: name,
+        email: email,
+        message: message 
+      })
     })
     .then(res => res.json())
     .then(data => {
-    if (data.message) {
-    alert(data.message);
-    } else {
-    alert("Unexpected error occurred.");
-    }
-    setName("");
-    setEmail("");
-    setMessage("");
-  })
-  .catch(error => {
-    alert("Error connecting to server: " + error);
-  });
+      console.log("Response from PHP:", data); // Debug line
+      alert(data.message);
+      if (data.message === "Data saved successfully") {
+        setName("");
+        setEmail("");
+        setMessage("");
+      }
+    })
+    .catch(error => {
+      console.error("Fetch error:", error);
+      alert("Error connecting to server: " + error);
+    });
   };
 
   return (
@@ -39,21 +45,30 @@ function Contact() {
       
       <form onSubmit={handleSubmit}>
         <input 
+          id="contactName"
+          name="contactName"
           type="text" 
           placeholder="Name" 
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
         <input 
+          id="contactEmail"
+          name="contactEmail"
           type="email" 
           placeholder="Email" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <textarea 
+          id="contactMessage"
+          name="contactMessage"
           placeholder="Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          required
         ></textarea>
         <button type="submit">Send</button>
       </form>
